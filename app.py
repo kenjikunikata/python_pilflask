@@ -1,7 +1,7 @@
 from flask import Flask, request, send_file
 from PIL import Image, ImageDraw
 import io
-
+import os
 app = Flask(__name__)
 
 @app.route('/generate')
@@ -15,9 +15,10 @@ def generate_image():
     return send_file(buf, mimetype='image/png')
 
 if __name__ == '__main__':
-    import os
+    
     port = int(os.environ.get("PORT", 5001))
     app.run(host="0.0.0.0", port=port)
+
 
 
 
